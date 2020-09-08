@@ -10,6 +10,9 @@
         body {
             font-family: "Skolar Sans", Helvetica, sans-serif;
         }
+        html {
+    width: 100vw;
+}
 
         .intro {
             display: flex;
@@ -56,6 +59,7 @@
             margin: 1.1rem 0 0 0;
             padding-bottom: 1.1rem;
         }
+
         .party {
             margin: 0 0.3rem;
         }
@@ -78,7 +82,8 @@
             vertical-align: middle;
             margin: 0 auto;
         }
-        .arrow{
+
+        .arrow {
             width: 0;
             height: 0;
             border-top: 6px solid transparent;
@@ -86,14 +91,16 @@
             border-bottom: 6px solid transparent;
             border-left: 6px solid rgba(0, 0, 0, 0.7);
         }
+
         .arrow-down {
             border-left: 6px solid transparent;
             border-top: 6px solid rgba(0, 0, 0, 0.7);
             position: relative;
-            top:6px;
-            right:6px;
+            top: 6px;
+            right: 6px;
         }
-/*
+
+        /*
         .arrow-right {
             border-top: 6px solid transparent;
             border-left: 6px solid rgba(0, 0, 0, 0.7);
@@ -172,6 +179,7 @@
         $(".child").click(function (e) {
             e.stopPropagation();
         });
+
     }
 </script>
 
