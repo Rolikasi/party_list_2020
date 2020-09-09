@@ -9,9 +9,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выборы в Жогорку Кенеш-2020</title>
     <style>
-        body {
-            font-family: "Skolar Sans", Helvetica, sans-serif;
+        @font-face {
+            font-family: Skolar Sans;
+            font-weight: 300;
+            src: url("https://docs.rferl.org/Infographics/sources/fonts/SkolarSansCyrlEl.woff")
         }
+
+        @font-face {
+            font-family: Skolar Sans;
+            font-weight: 400;
+            src: url("https://docs.rferl.org/Infographics/sources/fonts/SkolarSansLatnCyrl.woff")
+        }
+
+        @font-face {
+            font-family: Skolar Sans;
+            font-weight: 700;
+            src: url("https://docs.rferl.org/Infographics/sources/fonts/SkolarSansLatnCyrl-Bd.woff")
+        }
+
+        @font-face {
+            font-family: Skolar;
+            src: url("https://docs.rferl.org/Infographics/sources/fonts/Apollo_Framework/SkolarLatnCyrl-Light.woff2");
+            font-weight: 300
+        }
+
+        @font-face {
+            font-family: Skolar;
+            src: url("https://docs.rferl.org/Infographics/sources/fonts/Apollo_Framework/SkolarLatnCyrl-Rg.woff2");
+            font-weight: 400
+        }
+
+        @font-face {
+            font-family: Skolar;
+            src: url("https://docs.rferl.org/Infographics/sources/fonts/Apollo_Framework/SkolarLatnCyrl-Bd.woff2");
+            font-weight: 700
+        }
+
+        @font-face {
+            font-family: DeJaVu;
+            src: url(https://docs.rferl.org/Infographics/sources/fonts/Apollo_Framework/DejaVuSans.woff) format("woff");
+            font-weight: normal;
+            font-style: normal
+        }
+
+        :root {
+            font-family: "Skolar", Georgia, Times, "Times New Roman", serif;
+        }
+
 
 
         .intro,
@@ -43,6 +87,12 @@
         .header_text {
             font-size: 1rem;
             text-align: left;
+        }
+
+        .header,
+        .name,
+        .party {
+            font-family: "Skolar Sans", Helvetica, Arial, "Arial Unicode MS", sans-serif;
         }
 
         .header_desc {
@@ -183,10 +233,15 @@
     <div class="footer">
         <div class="sharing">
             <span>Поделиться</span>
-            <a class='fa fa-facebook' href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frus.azattyk.org%2Fa%2F30828971.html" title="Поделиться"
-                target="_blank"></a>
-            <a class='fa fa-twitter' href="https://twitter.com/share?text=Выборы 2020. Списки партий?&url=https%3A%2F%2Frus.azattyk.org%2Fa%2F30828971.html" title="Поделиться" target="_blank"></a>
-            <a class='fa fa-telegram' href="https://telegram.me/share/url?text=Выборы 2020. Списки партий?&url=https%3A%2F%2Frus.azattyk.org%2Fa%2F30828971.html" title="Поделиться" target="_blank"></a>
+            <a class='fa fa-facebook'
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frus.azattyk.org%2Fa%2F30828971.html"
+                title="Поделиться" target="_blank"></a>
+            <a class='fa fa-twitter'
+                href="https://twitter.com/share?text=Выборы 2020. Списки партий?&url=https%3A%2F%2Frus.azattyk.org%2Fa%2F30828971.html"
+                title="Поделиться" target="_blank"></a>
+            <a class='fa fa-telegram'
+                href="https://telegram.me/share/url?text=Выборы 2020. Списки партий?&url=https%3A%2F%2Frus.azattyk.org%2Fa%2F30828971.html"
+                title="Поделиться" target="_blank"></a>
         </div>
         <p class="copyright">Радио Азаттык © Радио Свободная Европа/Радио Свобода. Все права защищены.</p>
     </div>
