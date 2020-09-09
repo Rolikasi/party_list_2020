@@ -12,11 +12,11 @@ def calculateAge(birthDate):
     age = today.year - birthDate.year - \
         ((today.month, today.day) < (birthDate.month, birthDate.day))
     if (age % 10) >= 5 or (age % 10) == 0:
-        return str(age) + ' жашта' #лет
+        return str(age) + ' лет' #жашта
     elif (age % 10) == 1:
-        return str(age) + ' жашта' #год
+        return str(age) + ' год' #год
     else:
-        return str(age) + ' жашта' #года
+        return str(age) + ' года' #года
 
 
 col_replace = {'Ф.А.А.': 'name', 'Туулган датасы \nжана жылы': 'years',
@@ -27,7 +27,7 @@ col_replace = {'Ф.А.А.': 'name', 'Туулган датасы \nжана жы
                'Должность': 'position',
                'Партия': 'party'}
 # %%
-df = pd.read_csv('data/party_list_kg.csv')
+df = pd.read_csv('data/party_list_ru.csv')
 df = df.replace({'\n': ''}, regex=True)
 df.rename(columns=col_replace, inplace=True)
 df.years = df.years.replace({r'(\d\d\.\d\d)\.(\d\d$)': r'\1.19\2'}, regex=True)
@@ -36,7 +36,7 @@ df.years = df.years.apply(calculateAge)
 df.party = df.party.replace({'«': '', '»': '', '"': '', '“': ''}, regex=True)
 df['description'] = df[['work', 'position']].apply(
     lambda x: ', '.join(x.astype(str)), axis=1)
-df.description = df.description.replace({', nan': '', 'nan,': ''}, regex=True)
+df.description = df.description.replace({', nan': '', 'nan,': '', 'nan': ''}, regex=True)
 df.description = df.description.replace({r'(.*)\s?-\s?$': r'\1'}, regex=True)
 df.description = df.description.str.strip()
 df.drop(['work', 'position'], 1, inplace=True)
@@ -51,7 +51,7 @@ j
 sort = sorted(json.loads(j), key=lambda k: len(k['party']) > 22, reverse=False)
 
 # %%
-with open('data/party_list_kg.json', 'w', encoding='utf8') as file:
+with open('data/party_list_ru.json', 'w', encoding='utf8') as file:
     json.dump(sort, file, ensure_ascii=False)
 # %%
 type(j)
