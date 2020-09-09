@@ -122,7 +122,8 @@
             cursor: pointer;
             background-color: #ffff;
             position: sticky;
-            top: 0;
+            position: -webkit-sticky;
+            top: 2.5rem;
             border-radius: 5px;
             border: 1px solid #d0cccc;
             margin: 0 0 0.2rem 0;
@@ -208,6 +209,20 @@
             margin: 1rem 0 0 0;
         }
 
+        .input {
+            position: sticky;
+            position: -webkit-sticky;
+            top: 2px;
+            height: 1rem;
+            margin: 0.2rem 0;
+            padding: 0.5rem 0 0.5rem 0.3rem;
+            border-radius: 5px;
+            border: 1px solid #d0cccc;
+            -webkit-box-shadow: 0 3px 3px 1px rgba(0, 0, 0, .11);
+            box-shadow: 0 3px 3px 1px rgba(0, 0, 0, .11);
+
+        }
+
         @media screen and (min-width: 600px) {
             .mobile-break {
                 display: none;
@@ -228,8 +243,13 @@
         </p>
         <p class='header_desc'>Всего кандидатов: 1910</p>
     </section>
-    <div id="partyData" class="table">
-    </div>
+
+    <section class="table">
+        <input class='input' type="text" placeholder="Введите имя" list="candidates_list">
+        <datalist id="candidates_list"></datalist>
+        <div id="partyData">
+        </div>
+    </section>
     <div class="footer">
         <div class="sharing">
             <span>Поделиться</span>
@@ -261,12 +281,19 @@
         return parties;
     })();
     function getChildren($row) {
-        var children = [];
+        let children = [];
         while ($row.next().hasClass('child')) {
             children.push($row.next());
             $row = $row.next();
         }
         return children;
+    }
+
+    function getParent($row) {
+        while ($row.prev().hasClass('child')) {
+            $row = $row.prev();
+        }
+        return $row.prev();
     }
 
     function buildHtmlTable() {
@@ -299,6 +326,30 @@
         });
 
     }
+
+
+    var selectedDep;
+
+    var candidates = parties.map(e => e.candidates).reduce(
+        (arr, elem) => {
+            return [
+                ...arr,
+                ...elem.map(x => x.name)
+            ];
+        }, []
+    )
+    candidates.map(r => $('#candidates_list').append($('<option>').html(r)))
+    $('.input').on('input', d => {
+        selectedDep = $('.input').val();
+        if (candidates.includes(selectedDep)) {
+            child = $("*:contains(" + selectedDep + "):last").parent()
+            if (child.attr('style') == 'display: none;') {
+                var parent = getParent(child);
+                parent.click()
+            }
+            $(window).scrollTop($("*:contains(" + selectedDep + "):last").offset().top + (-100));
+        }
+    })
 </script>
 
 </html>
