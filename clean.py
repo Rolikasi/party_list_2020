@@ -27,7 +27,7 @@ col_replace = {'Ф.А.А.': 'name', 'Туулган датасы \nжана жы
                'Должность': 'position',
                'Партия': 'party'}
 # %%
-df = pd.read_csv('data/party_list_ru.csv')
+df = pd.read_csv('data/party_list_kg.csv')
 df = df.replace({'\n': ''}, regex=True)
 df.rename(columns=col_replace, inplace=True)
 df.years = df.years.replace({r'(\d\d\.\d\d)\.(\d\d$)': r'\1.19\2'}, regex=True)
@@ -51,7 +51,7 @@ j
 sort = sorted(json.loads(j), key=lambda k: len(k['party']) > 22, reverse=False)
 
 # %%
-with open('data/party_list_ru.json', 'w', encoding='utf8') as file:
+with open('data/party_list_kg.json', 'w', encoding='utf8') as file:
     json.dump(sort, file, ensure_ascii=False)
 # %%
 type(j)

@@ -26,7 +26,7 @@
 
         .footer {
             text-align: left;
-            margin-top: 2rem;
+            margin-top: 2.2rem;
         }
 
         .footer span {
@@ -46,7 +46,7 @@
         }
 
         .header_desc {
-            margin: 0 0 1rem;
+            margin: 0 0 1.2rem;
             font-size: 0.9rem;
             text-align: center;
             color: #373E43;
@@ -166,6 +166,12 @@
             padding: 1rem 0 0 0;
             font-size: 1rem;
         }
+        .logo{
+            margin: 1rem 0 0 0;
+        }
+        @media screen and (min-width: 600px)  {
+        .mobile-break { display: none; }
+    }
     </style>
 </head>
 
@@ -175,13 +181,12 @@
             <img src="https://raw.githubusercontent.com/Rolikasi/copypast_laws/master/Kyrgyz-RU_RGB_compact-brandmark.png"
                 height='63px' width='113px'>
         </a>
-        <h1 class='header'>Выборы 2020. Списки партий</h1>
+        <h1 class='header'>Выборы 2020. <br class="mobile-break"> Списки партий</h1>
         <p class='header_text'>4 октября пройдут выборы депутатов VII созыва Жогорку Кенеша. За места в парламенте
             поборются 15 партий. Представляем полный список кандидатов от каждой из них.
         </p>
         <p class='header_desc'>Всего кандидатов: 1910</p>
     </section>
-    <hr>
     <div id="partyData" class="table">
     </div>
     <div class="footer">
@@ -209,7 +214,6 @@
         });
         return parties;
     })();
-    console.log(parties)
     // Builds the HTML Table out of parties parties data from Ivy restful service.
     function getChildren($row) {
         var children = [];
