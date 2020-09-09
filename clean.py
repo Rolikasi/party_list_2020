@@ -12,11 +12,11 @@ def calculateAge(birthDate):
     age = today.year - birthDate.year - \
         ((today.month, today.day) < (birthDate.month, birthDate.day))
     if (age % 10) >= 5 or (age % 10) == 0:
-        return str(age) + ' лет'
+        return str(age) + ' жашта' #лет
     elif (age % 10) == 1:
-        return str(age) + ' год'
+        return str(age) + ' жашта' #год
     else:
-        return str(age) + ' года'
+        return str(age) + ' жашта' #года
 
 
 col_replace = {'Ф.А.А.': 'name', 'Туулган датасы \nжана жылы': 'years',
