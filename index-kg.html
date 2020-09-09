@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выборы в Жогорку Кенеш-2020</title>
+    <style>
+        body {
+            font-family: "Skolar Sans", Helvetica, sans-serif;
+        }
+
+
+        .intro,
+        .footer {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+            padding: 0 0.5rem;
+        }
+
+        .footer {
+            text-align: left;
+            margin-top: 2.2rem;
+        }
+
+        .footer span {
+            text-transform: uppercase;
+            font-size: 1rem;
+
+        }
+
+        .header {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .header_text {
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .header_desc {
+            margin: 0 0 1.2rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #373E43;
+        }
+
+        .table {
+            display: flex;
+            flex-direction: column;
+            border: 0;
+            max-width: 700px;
+            margin: 1rem auto 0 auto;
+        }
+
+        hr {
+            text-align: center;
+            border: 0;
+        }
+
+        hr::before {
+            font-size: 32px;
+            letter-spacing: .5em;
+            content: '...';
+            display: inline-block;
+            margin-left: .6em;
+            color: #5B6770;
+            position: relative;
+            top: -10px;
+        }
+
+        .parent {
+            width: auto;
+            max-width: 100%;
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            background-color: #ffff;
+            position: sticky;
+            top: 0;
+            border-radius: 5px;
+            border: 1px solid #d0cccc;
+            margin: 0 0 0.2rem 0;
+        }
+
+        .parent-active {
+            border-radius: 5px;
+            -webkit-box-shadow: 0 3px 3px 1px rgba(0, 0, 0, .11);
+            box-shadow: 0 3px 3px 1px rgba(0, 0, 0, .11);
+            border: 1px solid #d0cccc;
+        }
+
+        .child {
+            border-bottom: 1px solid rgba(50, 50, 50, 0.6);
+            font-weight: 400;
+            font-size: 0.9rem;
+            margin: 1.1rem 0 0 0;
+            padding-bottom: 1.1rem;
+        }
+
+        .party {
+            margin: 0 0.3rem;
+        }
+
+        .name {
+            font-weight: bold;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .description {
+            margin: 0;
+        }
+
+        .dot {
+            height: 0.3rem;
+            width: 0.3rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 auto;
+        }
+
+        .arrow {
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 6px solid rgba(0, 0, 0, 0.7);
+        }
+
+        .arrow-down {
+            border-left: 6px solid transparent;
+            border-top: 6px solid rgba(0, 0, 0, 0.7);
+            position: relative;
+            top: 6px;
+            right: 6px;
+        }
+
+        .fa {
+            padding: 0;
+            font-size: 1.7rem;
+            width: 2rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50%;
+            color: #BDC2C6;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+            color: #EA6903;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(0, 0, 0, .11);
+            padding: 1rem 0 0 0;
+            font-size: 1rem;
+        }
+
+        .logo {
+            margin: 1rem 0 0 0;
+        }
+
+        @media screen and (min-width: 600px) {
+            .mobile-break {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body onLoad="buildHtmlTable('#partyData')">
+    <section class="intro">
+        <a class="logo" href="/">
+            <img src="https://raw.githubusercontent.com/Rolikasi/copypast_laws/master/Kyrgyz-RU_RGB_compact-brandmark.png"
+                height='63px' width='113px'>
+        </a>
+        <h1 class='header'>Выборы 2020. <br class="mobile-break"> Списки партий</h1>
+        <p class='header_text'>4 октября пройдут выборы депутатов VII созыва Жогорку Кенеша. За места в парламенте
+            поборются 15 партий. Представляем полный список кандидатов от каждой из них.
+        </p>
+        <p class='header_desc'>Всего кандидатов: 1910</p>
+    </section>
+    <div id="partyData" class="table">
+    </div>
+    <div class="footer">
+        <div class="sharing">
+            <span>Поделиться</span>
+            <a class='fa fa-facebook' href="https://www.facebook.com/sharer/sharer.php" title="Поделиться"
+                target="_blank"></a>
+            <a class='fa fa-twitter' href="https://twitter.com/share" title="Поделиться" target="_blank"></a>
+            <a class='fa fa-telegram' href="https://telegram.me/share/" title="Поделиться" target="_blank"></a>
+        </div>
+        <p class="copyright">Радио Азаттык © Радио Свободная Европа/Радио Свобода. Все права защищены.</p>
+    </div>
+</body>
+<script>
+    var parties = (function () {
+        var parties = null;
+        $.ajax({
+            'async': false,
+            'global': false,
+            'url': "https://raw.githubusercontent.com/Rolikasi/party_list_2020/master/data/party_list_kg.json",
+            'dataType': "json",
+            'success': function (data) {
+                parties = data;
+            }
+        });
+        return parties;
+    })();
+    // Builds the HTML Table out of parties parties data from Ivy restful service.
+    function getChildren($row) {
+        var children = [];
+        while ($row.next().hasClass('child')) {
+            children.push($row.next());
+            $row = $row.next();
+        }
+        return children;
+    }
+
+    function buildHtmlTable() {
+        for (var i = 0; i < parties.length; i++) {
+            var parent$ = $('<div/>').addClass("parent");
+            parent$.append($('<p class="party">').html(parties[i].party));
+            parent$.append('<div class="arrow">');
+            $("#partyData").append(parent$);
+            for (var colIdx = 0; colIdx < parties[i].candidates.length; colIdx++) { // 20 parties[i].candidates.length
+                var row$ = $('<div/>').addClass('child').css("display", "none");
+                var name = parties[i].candidates[colIdx]['№'] + '. ' + parties[i].candidates[colIdx].name;
+                var description = parties[i].candidates[colIdx].description
+                var years = parties[i].candidates[colIdx].years;
+                row$.append($('<p class="name">').html(name));
+                row$.append($('<p class="description">').html(description + " <span class='dot'></span> " + years));
+                $("#partyData").append(row$);
+            }
+        }
+
+        $('.parent').on('click', function () {
+            $(this).find('.arrow').toggleClass('arrow-down')
+            $(this).toggleClass('parent-active')
+            var children = getChildren($(this));
+            $.each(children, function () {
+                $(this).toggle();
+            })
+        });
+        $(".child").click(function (e) {
+            e.stopPropagation();
+        });
+
+    }
+</script>
+
+</html>
