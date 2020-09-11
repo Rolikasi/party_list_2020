@@ -12,11 +12,11 @@ def calculateAge(birthDate):
     age = today.year - birthDate.year - \
         ((today.month, today.day) < (birthDate.month, birthDate.day))
     if (age % 10) >= 5 or (age % 10) == 0:
-        return str(age) + ' лет' #жашта
+        return str(age) + ' жашта' #жашта
     elif (age % 10) == 1:
-        return str(age) + ' год' #год
+        return str(age) + ' жашта' #год
     else:
-        return str(age) + ' года' #года
+        return str(age) + ' жашта' #года
 
 
 col_replace = {'Ф.А.А.': 'name', 'Туулган датасы \nжана жылы': 'years',
@@ -27,7 +27,7 @@ col_replace = {'Ф.А.А.': 'name', 'Туулган датасы \nжана жы
                'Должность': 'position',
                'Партия': 'party'}
 # %%
-df = pd.read_csv('data/party_list_ru.csv')
+df = pd.read_csv('data/party_list_kg.csv')
 df = df.replace({'\n': ''}, regex=True)
 df.rename(columns=col_replace, inplace=True)
 df.years = df.years.replace({r'(\d\d\.\d\d)\.(\d\d$)': r'\1.19\2'}, regex=True)
@@ -51,7 +51,7 @@ j
 sort = sorted(json.loads(j), key=lambda k: len(k['party']) > 22, reverse=False)
 
 # %%
-with open('data/party_list_ru.json', 'w', encoding='utf8') as file:
+with open('data/party_list_kg.json', 'w', encoding='utf8') as file:
     json.dump(sort, file, ensure_ascii=False)
 # %%
 type(j)

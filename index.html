@@ -241,7 +241,7 @@
         <p class='header_text'>4 октября пройдут выборы депутатов VII созыва Жогорку Кенеша. За места в парламенте
             поборются 15 партий. Представляем полный список кандидатов от каждой из них.
         </p>
-        <p class='header_desc'>Всего кандидатов: 1910</p>
+        <p class='header_desc'></p>
     </section>
 
     <section class="table">
@@ -338,6 +338,7 @@
             ];
         }, []
     )
+    $('.header_desc').html('Всего кандидатов: ' + candidates.length)
     candidates.map(r => $('#candidates_list').append($('<option>').html(r)))
     $('.input').on('input', d => {
         selectedDep = $('.input').val();

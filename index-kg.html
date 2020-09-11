@@ -242,7 +242,7 @@
             Парламенттеги 120 орун үчүн 15 саясий партия ат салышууда. Партиялардан талапкер болгондордун толук тизмесин
             жарыялайбыз.
         </p>
-        <p class='header_desc'>Талапкерлердин жалпы саны: 1910</p>
+        <p class='header_desc'></p>
     </section>
 
     <section class="table">
@@ -339,6 +339,7 @@
             ];
         }, []
     )
+    $('.header_desc').html('Талапкерлердин жалпы саны: ' + candidates.length)
     candidates.map(r => $('#candidates_list').append($('<option>').html(r)))
     $('.input').on('input', d => {
         selectedDep = $('.input').val();
